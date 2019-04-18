@@ -6,8 +6,7 @@ section .data use64
 	caption db "HW", 0
 section .code use64
 	start:
-	and rsp, -10h
-	sub rsp, 32
+	sub rsp, 28h ; read about x64 fastcall  to understand it
 	xor rcx, rcx
 	mov rdx, msg
 	mov r8, caption
@@ -15,3 +14,4 @@ section .code use64
 	call MessageBoxA
 	xor rcx, rcx
 	call ExitProcess
+	add rsp, 28h
